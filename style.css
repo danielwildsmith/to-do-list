@@ -22,7 +22,7 @@ input, button {
     appearance: none;
 }
 
-#task-name-input {
+#task-input {
     flex: 1 1 0%;
     background: #379683;
     color: #EDF5E1;
@@ -35,10 +35,11 @@ input, button {
     font-size: 16px;
 }
 
-#add-task {
+#task-add-button {
     background: #05386B;
     color: #EDF5E1;
     padding: 0.5rem;
     font-size: 16px;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
