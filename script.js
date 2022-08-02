@@ -8,6 +8,10 @@ taskButton.addEventListener('click', addTask);
 function addTask(event) {
     event.preventDefault();
     
+    if(taskInput.value == '') {
+        alert('Input a task!');
+        return;
+    }
     const taskDiv = document.createElement('div');
     taskDiv.classList.add('task');
 
@@ -32,4 +36,7 @@ function addTask(event) {
     taskDiv.appendChild(deleteButton);
 
     taskList.appendChild(taskDiv);
+
+    //clear input box
+    taskInput.value = '';
 }
