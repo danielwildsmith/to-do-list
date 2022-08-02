@@ -2,4 +2,43 @@ body {
     background: #5CDB95;
     height: 100vh;
     font-family: 'Roboto', sans-serif;
+    padding: 0px 12rem;
+}
+
+#header {
+    color: #EDF5E1;
+    text-align: center;
+}
+
+.task-input-form {
+    display: flex;
+    gap: 5px;
+}
+
+input, button {
+    border: none;
+    background: none;
+    outline: none;
+    appearance: none;
+}
+
+#task-name-input {
+    flex: 1 1 0%;
+    background: #379683;
+    color: #EDF5E1;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+::placeholder {
+    color: #EDF5E1;
+    font-size: 16px;
+}
+
+#add-task {
+    background: #05386B;
+    color: #EDF5E1;
+    padding: 0.5rem;
+    font-size: 16px;
+    border-radius: 0.5rem;
 }
