@@ -43,3 +43,39 @@ input, button {
     border-radius: 0.5rem;
     cursor: pointer;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    margin-bottom: 12px;
+    gap: 6px;
+}
+
+.task-name {
+    flex: 1 1 0%;
+    background: #EDF5E1;
+    color: #05386B;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.complete-task-btn, .delete-task-btn, .edit-task-btn {
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.delete-task-btn:hover {
+    color: crimson;
+}
+
+.complete-task-btn:hover {
+    color: #379683;
+}
+
+.edit-task-btn:hover {
+    color: grey;
+}
