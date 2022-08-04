@@ -85,3 +85,8 @@ ul {
 .fa-x {
     pointer-events: none;
 }
+
+.completed-task {
+    opacity: 0.5;
+    text-decoration: line-through;
+}

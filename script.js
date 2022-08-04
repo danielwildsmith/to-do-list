@@ -5,7 +5,7 @@ const taskList = document.querySelector('.task-list');
 const completeTaskBtn = document.querySelector('.complete-task-btn');
 
 taskButton.addEventListener('click', addTask);
-taskList.addEventListener('click', deleteTask);
+taskList.addEventListener('click', deleteCompleteEditTasks);
 
 
 function addTask(event) {
@@ -23,9 +23,11 @@ function addTask(event) {
     completeButton.innerHTML = '<i class="fa-solid fa-check"></i>';
     taskDiv.appendChild(completeButton);
 
-    const taskName = document.createElement('li');
+    const taskName = document.createElement('input');
     taskName.classList.add('task-name');
-    taskName.innerText = taskInput.value;
+    taskName.type = 'text';
+    taskName.value = taskInput.value;
+    taskName.setAttribute('readonly', 'readonly');
     taskDiv.appendChild(taskName);
 
     const editButton = document.createElement('button');
@@ -44,11 +46,22 @@ function addTask(event) {
     taskInput.value = '';
 }
 
-function deleteTask(event) {
+function deleteCompleteEditTasks(event) {
     const btn = event.target;
 
+    const task = btn.parentElement;
+
     if(btn.classList[0] === 'delete-task-btn') {
-        const task = btn.parentElement;
         task.remove();
+    } else if(btn.classList[0] === 'complete-task-btn') {
+        task.classList.toggle('completed-task');
+    } else if(btn.classList[0] === 'edit-task-btn') {
+        const taskName = btn.previousSibling;
+        
+        if(taskName.getAttribute('readonly')) {
+            taskName.removeAttribute('readonly');
+        } else {
+            taskName.setAttribute('readonly', 'readonly');
+        }
     }
 }
