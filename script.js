@@ -2,7 +2,10 @@ const taskInput = document.querySelector('#task-input');
 const taskButton = document.querySelector('#task-add-button');
 const taskList = document.querySelector('.task-list');
 
+const completeTaskBtn = document.querySelector('.complete-task-btn');
+
 taskButton.addEventListener('click', addTask);
+taskList.addEventListener('click', deleteTask);
 
 
 function addTask(event) {
@@ -39,4 +42,13 @@ function addTask(event) {
 
     //clear input box
     taskInput.value = '';
+}
+
+function deleteTask(event) {
+    const btn = event.target;
+
+    if(btn.classList[0] === 'delete-task-btn') {
+        const task = btn.parentElement;
+        task.remove();
+    }
 }

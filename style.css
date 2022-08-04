@@ -79,3 +79,9 @@ ul {
 .edit-task-btn:hover {
     color: grey;
 }
+
+.fa-check,
+.fa-wrench,
+.fa-x {
+    pointer-events: none;
+}
