@@ -1,18 +1,45 @@
 body {
-    background: #5CDB95;
-    height: 100vh;
+    background: rgb(20, 20, 20);
     font-family: 'Roboto', sans-serif;
-    padding: 0px 12rem;
+}
+
+.content {
+    background: rgb(33, 33, 33);
+    color: white;
+    width: 50%;
+    min-height: 75vh;
+    height: auto;
+    margin: 100px auto;
+    padding: 25px 50px;
+    box-sizing: border-box;
 }
 
 #header {
-    color: #EDF5E1;
+    color: white;
     text-align: center;
+    margin: 0;
+}
+
+.quote {
+    margin-top: 12px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    color: grey;
+}
+
+.citation {
+    text-align: right;
+    font-weight: 700;
+    margin-bottom: 18px;
 }
 
 .task-input-form {
     display: flex;
     gap: 5px;
+    background: rgb(60, 60, 60);
 }
 
 input, button {
@@ -24,24 +51,27 @@ input, button {
 
 #task-input {
     flex: 1 1 0%;
-    background: #379683;
-    color: #EDF5E1;
+    color: white;
     padding: 0.5rem;
-    border-radius: 0.5rem;
+    font-size: 16px;
 }
 
 ::placeholder {
-    color: #EDF5E1;
+    color: white;
     font-size: 16px;
 }
 
 #task-add-button {
-    background: #05386B;
-    color: #EDF5E1;
-    padding: 0.5rem;
+    color: white;
+    border: white;
     font-size: 16px;
-    border-radius: 0.5rem;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+#task-add-button:hover {
+    background: white;
+    color: rgb(60, 60, 60);
 }
 
 ul {
@@ -58,33 +88,48 @@ ul {
 
 .task-name {
     flex: 1 1 0%;
-    background: #EDF5E1;
-    color: #05386B;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-}
-
-.complete-task-btn, .delete-task-btn, .edit-task-btn {
-    cursor: pointer;
-    transition: 0.4s;
-}
-
-.delete-task-btn:hover {
-    color: crimson;
-}
-
-.complete-task-btn:hover {
-    color: #379683;
-}
-
-.edit-task-btn:hover {
-    color: grey;
+    color: white;
+    padding: 0.25rem;
+    font-size: 16px;
 }
 
 .fa-check,
 .fa-wrench,
 .fa-x {
     pointer-events: none;
+}
+
+.complete-task-btn, .delete-task-btn, .edit-task-btn {
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.complete-task-btn {
+    color: rgb(37, 204, 37);
+}
+
+.edit-task-btn {
+    color: grey;
+}
+
+.delete-task-btn {
+    color:crimson;
+}
+
+.delete-task-btn:hover {
+    background: crimson;
+    color: rgb(33, 33, 33);
+}
+
+.complete-task-btn:hover {
+    background: rgb(37, 204, 37);
+    color: rgb(33, 33, 33);
+}
+
+.edit-task-btn:hover {
+    background: grey;
+    color: rgb(33, 33, 33);
 }
 
 .completed-task {
