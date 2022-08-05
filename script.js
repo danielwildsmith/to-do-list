@@ -42,6 +42,8 @@ function addTask(event) {
 
     taskList.appendChild(taskDiv);
 
+    saveTaskToLocalStorage(taskInput.value);
+
     //clear input box
     taskInput.value = '';
 }
@@ -64,4 +66,17 @@ function deleteCompleteEditTasks(event) {
             taskName.setAttribute('readonly', 'readonly');
         }
     }
+}
+
+function saveTaskToLocalStorage(task) {
+    let tasks;
+    if(window.localStorage.length == 0) {
+        tasks = [];
+    } else {
+        //local storage makes tasks a string, so I turn it back into an array to use push().
+        tasks = localStorage.getItem('tasks').split(',');
+    }
+
+    tasks.push(task);
+    localStorage.setItem('tasks', tasks);
 }
