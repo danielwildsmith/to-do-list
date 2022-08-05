@@ -16,33 +16,7 @@ function addTask(event) {
         alert('Input a task!');
         return;
     }
-    const taskDiv = document.createElement('div');
-    taskDiv.classList.add('task');
-
-    const completeButton = document.createElement('button');
-    completeButton.classList.add('complete-task-btn');
-    completeButton.innerHTML = '<i class="fa-solid fa-check"></i>';
-    taskDiv.appendChild(completeButton);
-
-    const taskName = document.createElement('input');
-    taskName.classList.add('task-name');
-    taskName.type = 'text';
-    taskName.value = taskInput.value;
-    taskName.setAttribute('readonly', 'readonly');
-    taskDiv.appendChild(taskName);
-
-    const editButton = document.createElement('button');
-    editButton.classList.add('edit-task-btn');
-    editButton.innerHTML = '<i class="fa-solid fa-wrench"></i>';
-    taskDiv.appendChild(editButton);
-
-    const deleteButton = document.createElement('button');
-    deleteButton.classList.add('delete-task-btn');
-    deleteButton.innerHTML = '<i class="fa-solid fa-x"></i>';
-    taskDiv.appendChild(deleteButton);
-
-    taskList.appendChild(taskDiv);
-
+    createTaskDOMElements(taskInput.value);
     saveTaskToLocalStorage(taskInput.value);
 
     //clear input box
@@ -90,31 +64,35 @@ function displayLocalStorageTasks() {
     let tasks = localStorage.getItem('tasks').split(',');
 
     for(let i = 0; i < tasks.length; i++) {
-        const taskDiv = document.createElement('div');
-        taskDiv.classList.add('task');
-
-        const completeButton = document.createElement('button');
-        completeButton.classList.add('complete-task-btn');
-        completeButton.innerHTML = '<i class="fa-solid fa-check"></i>';
-        taskDiv.appendChild(completeButton);
-
-        const taskName = document.createElement('input');
-        taskName.classList.add('task-name');
-        taskName.type = 'text';
-        taskName.value = tasks[i];
-        taskName.setAttribute('readonly', 'readonly');
-        taskDiv.appendChild(taskName);
-
-        const editButton = document.createElement('button');
-        editButton.classList.add('edit-task-btn');
-        editButton.innerHTML = '<i class="fa-solid fa-wrench"></i>';
-        taskDiv.appendChild(editButton);
-
-        const deleteButton = document.createElement('button');
-        deleteButton.classList.add('delete-task-btn');
-        deleteButton.innerHTML = '<i class="fa-solid fa-x"></i>';
-        taskDiv.appendChild(deleteButton);
-
-        taskList.appendChild(taskDiv);
+        createTaskDOMElements(tasks[i]);
     }
+}
+
+function createTaskDOMElements(input) {
+    const taskDiv = document.createElement('div');
+    taskDiv.classList.add('task');
+
+    const completeButton = document.createElement('button');
+    completeButton.classList.add('complete-task-btn');
+    completeButton.innerHTML = '<i class="fa-solid fa-check"></i>';
+    taskDiv.appendChild(completeButton);
+
+    const taskName = document.createElement('input');
+    taskName.classList.add('task-name');
+    taskName.type = 'text';
+    taskName.value = input;
+    taskName.setAttribute('readonly', 'readonly');
+    taskDiv.appendChild(taskName);
+
+    const editButton = document.createElement('button');
+    editButton.classList.add('edit-task-btn');
+    editButton.innerHTML = '<i class="fa-solid fa-wrench"></i>';
+    taskDiv.appendChild(editButton);
+
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-task-btn');
+    deleteButton.innerHTML = '<i class="fa-solid fa-x"></i>';
+    taskDiv.appendChild(deleteButton);
+
+    taskList.appendChild(taskDiv);
 }
