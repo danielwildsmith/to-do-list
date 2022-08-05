@@ -27,13 +27,24 @@ function deleteCompleteEditTasks(event) {
     const btn = event.target;
 
     const task = btn.parentElement;
+    const taskName = btn.previousSibling;
 
     if(btn.classList[0] === 'delete-task-btn') {
+        let tasks = localStorage.getItem('tasks').split(',');
+        let index = tasks.indexOf(taskName.value);
+        tasks.splice(index, 1);
+
+        //remove the task div element, then remove the value from local storage
         task.remove();
+        localStorage.setItem('tasks', tasks);
+
+        //cleanup: if nothing left in the array, clear the storage so no empty boxes are displayed
+        if(localStorage.getItem('tasks') == '') localStorage.clear();
+        
+        
     } else if(btn.classList[0] === 'complete-task-btn') {
         task.classList.toggle('completed-task');
     } else if(btn.classList[0] === 'edit-task-btn') {
-        const taskName = btn.previousSibling;
         
         if(taskName.getAttribute('readonly')) {
             taskName.removeAttribute('readonly');
